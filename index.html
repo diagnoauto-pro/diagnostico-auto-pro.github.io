@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DIAGNOAUTO — Diagnóstico electrónico automotriz profesional. Información, análisis, claridad y documentación para comprender mejor las fallas de tu vehículo.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="DIAGNOAUTO | Diagnóstico electrónico automotriz">
+  <meta property="og:description" content="Tu Auto Habla, Nosotros lo Escuchamos. Diagnóstico electrónico automotriz profesional.">
+  <meta property="og:type" content="website">
+  <title>DIAGNOAUTO | Diagnóstico electrónico automotriz</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --panel:#0d0d0d;
+      --panel-2:#111111;
+      --red:#e10600;
+      --red-2:#ff241d;
+      --white:#f5f5f5;
+      --muted:#b8b8b8;
+      --line:#343434;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),92%);margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(5,5,5,.94);
+      border-bottom:1px solid #222;
+      backdrop-filter:blur(10px);
+    }
+    .nav{
+      min-height:82px;display:flex;align-items:center;gap:28px;
+    }
+    .brand img{display:block;width:min(250px,42vw);height:auto}
+    nav{margin-left:auto;display:flex;align-items:center;gap:24px}
+    nav a{
+      font-size:.88rem;font-weight:700;letter-spacing:.03em;
+      color:#ddd;transition:.2s;
+    }
+    nav a:hover{color:var(--red-2)}
+    .nav-cta{
+      border:1px solid var(--red);padding:12px 18px;border-radius:8px;
+      font-weight:800;white-space:nowrap;
+    }
+    .nav-cta:hover{background:var(--red)}
+
+    .hero{
+      min-height:calc(100vh - 82px);
+      display:grid;grid-template-columns:1fr 1.08fr;align-items:center;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 78% 45%, rgba(225,6,0,.10), transparent 30%),
+        linear-gradient(90deg,#050505 0%,#070707 48%,#050505 100%);
+    }
+    .hero-copy{padding:72px 0 78px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      color:#ddd;font-size:.85rem;font-weight:800;letter-spacing:.12em;
+      text-transform:uppercase;margin-bottom:18px;
+    }
+    .eyebrow::before{content:"";width:42px;height:2px;background:var(--red)}
+    h1{
+      margin:0 0 22px;
+      font-size:clamp(2.7rem,5.2vw,5.3rem);
+      line-height:.98;
+      font-weight:900;
+      font-style:italic;
+      text-transform:uppercase;
+      letter-spacing:-.035em;
+    }
+    h1 span{color:var(--red)}
+    .lead{
+      max-width:620px;color:#ddd;font-size:clamp(1rem,1.4vw,1.22rem);
+      margin:0 0 28px;
+    }
+    .lead strong{color:var(--red-2)}
+    .trust{
+      max-width:560px;border:1px solid #3a3a3a;border-radius:10px;
+      padding:16px 18px;background:rgba(15,15,15,.8);
+      display:flex;align-items:center;gap:14px;margin-bottom:22px;
+    }
+    .shield{
+      width:42px;height:42px;border:2px solid #ddd;border-radius:50%;
+      display:grid;place-items:center;color:var(--red);font-weight:900;flex:0 0 auto;
+    }
+    .trust b{display:block;font-size:1rem}
+    .trust span{display:block;color:var(--red);font-weight:800;margin-top:2px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:52px;padding:0 22px;border-radius:8px;font-weight:900;
+      border:1px solid #777;
+    }
+    .btn-primary{background:var(--red);border-color:var(--red)}
+    .btn-primary:hover{background:var(--red-2)}
+    .btn-secondary{background:#0a0a0a}
+    .btn-secondary:hover{border-color:var(--red);color:var(--red-2)}
+
+    .hero-art{min-height:620px;display:flex;align-items:center;justify-content:flex-end}
+    .hero-art img{
+      width:min(900px,58vw);height:auto;display:block;
+      filter:drop-shadow(0 24px 40px rgba(0,0,0,.65));
+    }
+
+    .benefits{
+      border:1px solid var(--red);border-radius:12px;
+      background:linear-gradient(180deg,#0c0c0c,#080808);
+      display:grid;grid-template-columns:repeat(5,1fr);
+      margin:-42px auto 0;position:relative;z-index:5;
+      overflow:hidden;
+    }
+    .benefit{padding:24px 18px;border-right:1px solid #333}
+    .benefit:last-child{border-right:0}
+    .icon{
+      width:40px;height:40px;border:2px solid var(--red);border-radius:50%;
+      display:grid;place-items:center;color:var(--red);font-weight:900;margin-bottom:10px;
+    }
+    .benefit h3{margin:0 0 4px;font-size:.92rem;text-transform:uppercase}
+    .benefit p{margin:0;color:var(--muted);font-size:.82rem}
+
+    .tagline{
+      text-align:center;padding:72px 20px 90px;
+      font-size:clamp(1.4rem,3vw,2.3rem);font-weight:900;font-style:italic;
+      text-transform:uppercase;
+    }
+    .tagline span{color:var(--red)}
+
+    /* Future sections: intentionally not populated yet.
+       We will add them one at a time after approval of the Home. */
+    .next-step{
+      border-top:1px solid #1f1f1f;padding:26px 0;color:#777;text-align:center;font-size:.8rem;
+    }
+
+
+    .problem-section{
+      padding:100px 0 110px;
+      border-top:1px solid #1b1b1b;
+      background:
+        radial-gradient(circle at 12% 50%, rgba(225,6,0,.07), transparent 28%),
+        #080808;
+    }
+    .problem-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:70px;
+      align-items:center;
+    }
+    .section-kicker{
+      color:var(--red);
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.16em;
+      margin-bottom:14px;
+    }
+    .problem-copy h2{
+      margin:0 0 24px;
+      font-size:clamp(2rem,4vw,4rem);
+      line-height:1.02;
+      font-weight:900;
+      font-style:italic;
+      text-transform:uppercase;
+      letter-spacing:-.025em;
+    }
+    .problem-copy h2 span{color:var(--red)}
+    .problem-copy p{
+      color:#c9c9c9;
+      max-width:650px;
+      font-size:1.05rem;
+      margin:0 0 16px;
+    }
+    .problem-note{
+      margin-top:28px;
+      border-left:3px solid var(--red);
+      padding:16px 20px;
+      background:#0d0d0d;
+    }
+    .problem-note strong{
+      display:block;
+      font-size:1.08rem;
+      text-transform:uppercase;
+    }
+    .problem-note span{
+      display:block;
+      color:#999;
+      margin-top:5px;
+      font-size:.9rem;
+    }
+    .problem-card{
+      border:1px solid #3b3b3b;
+      border-radius:14px;
+      padding:28px;
+      background:
+        linear-gradient(145deg,rgba(225,6,0,.08),transparent 42%),
+        #0c0c0c;
+      box-shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+    .problem-card-top{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding-bottom:22px;
+      border-bottom:1px solid #2b2b2b;
+    }
+    .warning-icon{
+      width:54px;height:54px;
+      display:grid;place-items:center;
+      border:2px solid var(--red);
+      color:var(--red);
+      border-radius:50%;
+      font-size:1.8rem;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .problem-card-top strong{
+      display:block;
+      font-size:1.15rem;
+      text-transform:uppercase;
+    }
+    .problem-card-top span{
+      display:block;
+      color:#999;
+      font-size:.88rem;
+      margin-top:4px;
+    }
+    .signal{
+      height:54px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      margin:10px 0 6px;
+      overflow:hidden;
+    }
+    .signal span{
+      width:9px;height:9px;
+      border-radius:50%;
+      background:var(--red);
+      box-shadow:0 0 12px rgba(225,6,0,.6);
+    }
+    .signal span:nth-child(2){height:24px}
+    .signal span:nth-child(3){height:40px}
+    .signal span:nth-child(4){height:18px}
+    .signal span:nth-child(5){height:31px}
+    .problem-card ul{
+      list-style:none;
+      margin:0;padding:0;
+    }
+    .problem-card li{
+      padding:16px 0;
+      border-top:1px solid #272727;
+    }
+    .problem-card li:first-child{border-top:0}
+    .problem-card li b{
+      display:block;
+      color:#eee;
+      font-size:.98rem;
+      text-transform:uppercase;
+    }
+    .problem-card li small{
+      display:block;
+      color:#929292;
+      margin-top:3px;
+      font-size:.85rem;
+    }
+
+
+    .services-section{
+      padding:105px 0 90px;
+      background:#050505;
+      border-top:1px solid #1b1b1b;
+    }
+    .services-heading{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:70px;
+      align-items:end;
+      margin-bottom:42px;
+    }
+    .services-heading h2,.audience-section h2{
+      margin:0;
+      font-size:clamp(2.2rem,4vw,4rem);
+      line-height:1.02;
+      font-weight:900;
+      font-style:italic;
+      text-transform:uppercase;
+      letter-spacing:-.025em;
+    }
+    .services-heading h2 span,.audience-section h2 span{color:var(--red)}
+    .services-heading p{
+      margin:0;color:#aaa;font-size:1rem;max-width:540px;
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .service-card{
+      min-height:245px;
+      position:relative;
+      padding:27px;
+      border:1px solid #303030;
+      border-radius:12px;
+      background:linear-gradient(145deg,#111,#090909);
+      overflow:hidden;
+      transition:.2s;
+    }
+    .service-card:hover{border-color:#8b100c;transform:translateY(-2px)}
+    .service-card.featured{
+      border-color:var(--red);
+      background:linear-gradient(145deg,rgba(225,6,0,.13),#0b0b0b 65%);
+    }
+    .service-number{
+      position:absolute;right:18px;top:15px;
+      color:#444;font-size:.8rem;font-weight:900;letter-spacing:.1em;
+    }
+    .service-icon{
+      width:48px;height:48px;
+      display:grid;place-items:center;
+      border:1px solid var(--red);border-radius:9px;
+      color:var(--red);font-weight:900;font-size:.82rem;
+      margin-bottom:24px;
+    }
+    .service-card h3{
+      margin:0 0 8px;font-size:1.08rem;text-transform:uppercase;
+    }
+    .service-card p{margin:0;color:#999;font-size:.88rem}
+    .services-footer{
+      margin-top:18px;
+      border-top:1px solid #292929;
+      padding-top:20px;
+      display:flex;justify-content:space-between;gap:25px;
+      color:#8c8c8c;font-size:.8rem;
+    }
+    .services-footer strong{color:#d2d2d2;max-width:620px}
+    .services-footer span{max-width:500px;text-align:right}
+    .audience-section{
+      padding:95px 0 105px;
+      background:#0a0a0a;
+      border-top:1px solid #1b1b1b;
+    }
+    .audience-section h2{margin-top:8px;margin-bottom:35px}
+    .audience-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+    }
+    .audience-item{
+      padding:28px 22px;
+      border:1px solid #303030;border-radius:10px;
+      background:#0e0e0e;
+    }
+    .audience-item b{display:block;color:#eee;font-size:.95rem;margin-bottom:7px}
+    .audience-item span{display:block;color:#929292;font-size:.86rem}
+
+
+    .why-section{
+      padding:105px 0 100px;
+      background:#070707;
+      border-top:1px solid #1b1b1b;
+    }
+    .why-heading{
+      display:grid;grid-template-columns:1.08fr .92fr;
+      gap:70px;align-items:end;margin-bottom:40px;
+    }
+    .why-heading h2,.process-section h2{
+      margin:0;font-size:clamp(2.2rem,4vw,4rem);
+      line-height:1.02;font-weight:900;font-style:italic;
+      text-transform:uppercase;letter-spacing:-.025em;
+    }
+    .why-heading h2 span,.process-section h2 span{color:var(--red)}
+    .why-heading p{margin:0;color:#aaa;max-width:560px}
+    .why-grid{
+      display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+    }
+    .why-card{
+      position:relative;padding:28px 20px;min-height:245px;
+      border:1px solid #303030;border-radius:11px;background:#0d0d0d;
+    }
+    .why-card:nth-child(2),.why-card:nth-child(4){background:#101010}
+    .why-index{
+      position:absolute;right:15px;top:14px;color:#444;
+      font-size:.75rem;font-weight:900;
+    }
+    .why-symbol{
+      width:46px;height:46px;border:1px solid var(--red);
+      border-radius:8px;display:grid;place-items:center;
+      color:var(--red);font-weight:900;margin-bottom:24px;
+    }
+    .why-card h3{margin:0 0 8px;text-transform:uppercase;font-size:1rem}
+    .why-card p{margin:0;color:#999;font-size:.84rem}
+    .process-section{
+      padding:105px 0 110px;background:#050505;border-top:1px solid #1b1b1b;
+    }
+    .process-section h2{margin:8px 0 42px}
+    .process-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+    }
+    .process-step{
+      padding:26px;border-left:3px solid #303030;
+      background:#0b0b0b;min-height:170px;
+      border-top:1px solid #262626;border-bottom:1px solid #262626;
+    }
+    .process-step:hover{border-left-color:var(--red)}
+    .process-step b{display:block;color:var(--red);font-size:.8rem;margin-bottom:18px}
+    .process-step strong{display:block;text-transform:uppercase;font-size:.98rem;margin-bottom:7px}
+    .process-step p{margin:0;color:#929292;font-size:.85rem}
+
+
+    .report-section,.b2b-section,.prebuy-section,.fleet-section,.faq-section,.contact-section{
+      border-top:1px solid #1b1b1b;
+    }
+    .report-section{padding:105px 0;background:#0a0a0a}
+    .report-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+    .report-visual{display:grid;place-items:center;min-height:430px}
+    .report-sheet{
+      width:min(390px,80%);aspect-ratio:3/4.1;
+      border:1px solid #555;background:#f1f1f1;color:#111;
+      padding:26px;position:relative;box-shadow:0 25px 70px rgba(0,0,0,.55);
+      transform:rotate(-2deg);
+    }
+    .report-head{display:flex;justify-content:space-between;font-size:.72rem;font-weight:900;border-bottom:2px solid #111;padding-bottom:12px}
+    .report-head b{color:#a30b07}
+    .report-line{height:6px;background:#ccc;margin:20px 0;width:72%}
+    .report-line.wide{width:100%;background:#222}
+    .report-row{display:grid;grid-template-columns:12px 1fr 42px;gap:10px;align-items:center;margin:20px 0}
+    .report-row i{width:12px;height:12px;border-radius:50%;background:#a30b07}
+    .report-row span{height:8px;background:#ccc}
+    .report-row em{height:8px;background:#999}
+    .report-stamp{position:absolute;right:20px;bottom:24px;border:2px solid #a30b07;color:#a30b07;padding:8px;font-weight:900;transform:rotate(-8deg)}
+    .report-copy h2,.b2b-copy h2,.prebuy-copy h2,.fleet-section h2,.faq-section h2{
+      margin:0 0 24px;font-size:clamp(2.2rem,4vw,4rem);line-height:1.02;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.025em
+    }
+    .report-copy h2 span,.b2b-copy h2 span,.prebuy-copy h2 span,.fleet-section h2 span,.faq-section h2 span{color:var(--red)}
+    .report-copy>p,.b2b-copy>p,.prebuy-copy>p{color:#aaa;max-width:650px;font-size:1rem}
+    .report-points{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .report-points div{border:1px solid #303030;border-radius:8px;padding:15px;background:#0f0f0f}
+    .report-points b{display:block;text-transform:uppercase;font-size:.88rem}
+    .report-points span{display:block;color:#888;font-size:.8rem;margin-top:4px}
+    .b2b-section{padding:105px 0;background:#050505}
+    .b2b-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .b2b-copy p{margin-bottom:28px}
+    .b2b-card{border:1px solid var(--red);border-radius:12px;background:#0b0b0b;padding:26px}
+    .b2b-card-title{font-size:.8rem;font-weight:900;letter-spacing:.15em;color:var(--red);padding-bottom:16px;border-bottom:1px solid #333}
+    .b2b-item{padding:17px 0;border-bottom:1px solid #292929}
+    .b2b-item b{display:block;font-size:.84rem}
+    .b2b-item span{color:#8e8e8e;font-size:.8rem}
+    .b2b-footer{padding-top:20px;font-size:.82rem;color:#aaa}
+    .b2b-footer strong{display:block;color:#eee;margin-top:4px}
+    .prebuy-section{padding:105px 0;background:#0a0a0a}
+    .prebuy-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .prebuy-card{min-height:420px;display:grid;place-items:center;border:1px solid #333;border-radius:14px;background:radial-gradient(circle at 50% 45%,rgba(225,6,0,.13),transparent 45%),#080808}
+    .prebuy-badge{position:absolute;transform:translateY(-185px);color:#fff;background:var(--red);padding:7px 14px;font-size:.75rem;font-weight:900}
+    .prebuy-screen{width:min(340px,75%);height:210px;border:1px solid #4a4a4a;border-radius:14px;background:#111;padding:28px;box-shadow:0 15px 45px rgba(0,0,0,.5)}
+    .screen-dot{width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 15px rgba(225,6,0,.8);margin-bottom:25px}
+    .screen-bars{display:flex;align-items:end;gap:8px;height:75px}
+    .screen-bars i{display:block;width:30px;background:#777;height:30px}
+    .screen-bars i:nth-child(2){height:50px}.screen-bars i:nth-child(3){height:38px}.screen-bars i:nth-child(4){height:65px}.screen-bars i:nth-child(5){height:45px}
+    .prebuy-screen>span{display:block;color:#999;font-size:.68rem;margin-top:18px;letter-spacing:.08em}
+    .responsible{border-left:3px solid var(--red);padding:14px 18px;background:#101010;font-size:.88rem!important;color:#aaa!important}
+    .responsible strong{color:#eee}
+    .fleet-section{padding:105px 0;background:#050505}
+    .fleet-lead{color:#999;margin:0 0 35px}
+    .fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .fleet-card{padding:27px 20px;min-height:185px;border:1px solid #303030;border-radius:10px;background:#0c0c0c}
+    .fleet-card b{display:block;color:var(--red);font-size:.75rem;margin-bottom:30px}
+    .fleet-card strong{display:block;text-transform:uppercase}
+    .fleet-card span{display:block;color:#888;font-size:.82rem;margin-top:7px}
+    .faq-section{padding:105px 0;background:#0a0a0a}
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    details{border:1px solid #303030;border-radius:9px;background:#0f0f0f}
+    summary{cursor:pointer;list-style:none;padding:19px 20px;font-weight:800;font-size:.9rem}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";float:right;color:var(--red);font-size:1.2rem}
+    details[open] summary::after{content:"−"}
+    details p{margin:0;padding:0 20px 20px;color:#999;font-size:.84rem}
+    .contact-section{padding:100px 0;background:#050505}
+    .contact-box{border:1px solid var(--red);border-radius:14px;padding:45px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;background:linear-gradient(120deg,rgba(225,6,0,.09),#0b0b0b 55%)}
+    .contact-box h2{margin:0;font-size:clamp(2rem,4vw,3.8rem);line-height:1.03;text-transform:uppercase;font-style:italic}
+    .contact-box p{font-size:1.4rem;color:var(--red);font-weight:900;margin:14px 0 0}
+    .contact-placeholder{border:1px dashed #555;border-radius:10px;padding:28px}
+    .contact-placeholder span{display:block;font-weight:900;font-size:.9rem}
+    .contact-placeholder small{display:block;color:#777;margin-top:7px}
+    .contact-real{display:flex;flex-direction:column;gap:12px}
+    .contact-real span{color:#fff;margin-bottom:4px}
+    .contact-real a{color:#fff;text-decoration:none;font-weight:800;font-size:1.08rem}
+    .contact-real a:hover{color:var(--red)}
+    .contact-real small{line-height:1.5}
+
+
+    .menu-toggle{
+      display:none;border:1px solid #333;background:#0b0b0b;color:#fff;
+      border-radius:8px;padding:10px 12px;font-size:1.05rem;cursor:pointer;
+    }
+    footer{
+      border-top:1px solid #242424;background:#030303;padding:30px 0 24px;
+      color:#8d8d8d;font-size:.78rem;
+    }
+    .footer-inner{display:flex;justify-content:space-between;gap:24px;align-items:center}
+    .footer-brand{color:#fff;font-weight:900;letter-spacing:.08em}
+    .footer-note{max-width:650px;text-align:right}
+
+    @media (max-width: 980px){
+      .nav{min-height:72px}
+      nav{
+        display:none;position:absolute;left:4%;right:4%;top:72px;
+        flex-direction:column;align-items:stretch;gap:0;
+        padding:8px;background:#090909;border:1px solid #292929;border-radius:10px;
+        box-shadow:0 16px 40px rgba(0,0,0,.45);
+      }
+      nav.open{display:flex}
+      nav a{padding:13px 14px;border-bottom:1px solid #222}
+      nav a:last-child{border-bottom:0}
+      .menu-toggle{display:block;margin-left:auto}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .problem-grid{grid-template-columns:1fr;gap:38px}
+      .report-grid,.b2b-grid,.prebuy-grid{grid-template-columns:1fr;gap:45px}
+      .fleet-grid{grid-template-columns:1fr 1fr}
+      .faq-grid{grid-template-columns:1fr}
+      .contact-box{grid-template-columns:1fr;gap:30px}
+
+      .why-heading{grid-template-columns:1fr;gap:20px}
+      .why-grid{grid-template-columns:repeat(3,1fr)}
+      .process-grid{grid-template-columns:1fr 1fr}
+      .services-heading{grid-template-columns:1fr;gap:20px}
+      .services-grid{grid-template-columns:1fr 1fr}
+      .services-footer{flex-direction:column}
+      .services-footer span{text-align:left}
+      .audience-grid{grid-template-columns:1fr 1fr}
+
+      .problem-section{padding:76px 0 82px}
+      .hero-copy{padding:58px 0 20px}
+      .hero-art{min-height:0;justify-content:center;padding:12px 0 30px}
+      .hero-art img{width:min(900px,100%)}
+      .benefits{grid-template-columns:1fr 1fr;margin-top:0}
+      .benefit:nth-child(2n){border-right:0}
+      .benefit{border-bottom:1px solid #333}
+    }
+    @media (max-width: 560px){
+      .container{width:min(94%,var(--max))}
+      .nav{gap:10px}
+      .nav-cta{margin-left:0}
+      .brand img{width:205px}
+      .nav-cta{padding:9px 11px;font-size:.78rem}
+      h1{font-size:clamp(2.45rem,13vw,4rem)}
+      .lead{font-size:1rem}
+      .actions{display:grid}
+      .btn{width:100%}
+      .benefits{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .report-points{grid-template-columns:1fr}
+      .fleet-grid{grid-template-columns:1fr}
+      .report-section,.b2b-section,.prebuy-section,.fleet-section,.faq-section,.contact-section{padding-top:75px;padding-bottom:75px}
+      .contact-box{padding:28px 22px}
+
+      .process-grid{grid-template-columns:1fr}
+
+      .audience-grid{grid-template-columns:1fr}
+      .services-section,.audience-section{padding-left:0;padding-right:0}
+
+      .benefit,.benefit:nth-child(2n){border-right:0;border-bottom:1px solid #333}
+      .benefit:last-child{border-bottom:0}
+      .tagline{padding:52px 12px 65px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      .footer-note{text-align:left}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="DIAGNOAUTO inicio">
+      <img src="assets/logo.png" alt="DIAGNOAUTO — Diagnóstico electrónico automotriz profesional">
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">INICIO</a>
+      <a href="#que-hacemos">¿QUÉ HACEMOS?</a>
+      <a href="#para-quien">PARA QUIÉN</a>
+      <a href="#servicios">SERVICIOS</a>
+      <a href="#por-que">POR QUÉ</a>
+      <a href="#informe">INFORME</a>
+      <a href="#como-funciona">CÓMO FUNCIONA</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false">☰</button>
+    <a class="nav-cta" href="#contacto">CONSULTÁ AHORA</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="container hero-copy">
+      <div class="eyebrow">Diagnóstico electrónico automotriz</div>
+      <h1>Diagnóstico electrónico<br>profesional para <span>tu auto.</span></h1>
+      <p class="lead">
+        Obtené información precisa, encontrá la causa real de la falla
+        y tomá mejores decisiones.<br>
+        Menos suposiciones, menos gastos, <strong>más soluciones.</strong>
+      </p>
+
+      <div class="trust">
+        <div class="shield">✓</div>
+        <div>
+          <b>Tecnología de última generación</b>
+          <span>Resultados confiables</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#contacto">CONSULTÁ AHORA</a>
+        <a class="btn btn-secondary" href="#contacto">PEDÍ TU TURNO</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <img src="assets/hero-visual.png" alt="">
+    </div>
+  </section>
+
+  <section class="container benefits" aria-label="Beneficios de DIAGNOAUTO">
+    <article class="benefit">
+      <div class="icon">⌖</div>
+      <h3>Máxima precisión</h3>
+      <p>Información real del vehículo para orientar el diagnóstico.</p>
+    </article>
+    <article class="benefit">
+      <div class="icon">✓</div>
+      <h3>Resultados confiables</h3>
+      <p>Equipamiento profesional y análisis responsable.</p>
+    </article>
+    <article class="benefit">
+      <div class="icon">◷</div>
+      <h3>Ahorrá tiempo y dinero</h3>
+      <p>Evitá reparaciones innecesarias y cambios a ciegas.</p>
+    </article>
+    <article class="benefit">
+      <div class="icon">▤</div>
+      <h3>Informes profesionales</h3>
+      <p>Resultados claros y documentación cuando corresponda.</p>
+    </article>
+    <article class="benefit">
+      <div class="icon">↗</div>
+      <h3>Tu aliado en diagnóstico</h3>
+      <p>Información para tomar mejores decisiones.</p>
+    </article>
+  </section>
+
+  <section class="tagline">
+    <span>Tu Auto Habla</span>, Nosotros lo Escuchamos.
+  </section>
+
+  <section id="que-hacemos" class="problem-section">
+    <div class="container problem-grid">
+      <div class="problem-copy">
+        <div class="section-kicker">EL PROBLEMA</div>
+        <h2>Cuando aparece una falla,<br><span>no siempre hay que cambiar una pieza.</span></h2>
+        <p>
+          Una luz en el tablero, un comportamiento extraño o una falla que aparece
+          y desaparece pueden tener diferentes causas.
+        </p>
+        <p>
+          Los vehículos modernos integran múltiples sistemas electrónicos.
+          Obtener información antes de decidir una reparación permite orientar
+          mejor el diagnóstico y evitar reemplazos innecesarios.
+        </p>
+        <div class="problem-note">
+          <strong>Primero información. Después decisiones.</strong>
+          <span>El diagnóstico electrónico complementa la revisión mecánica o eléctrica cuando corresponde.</span>
+        </div>
+      </div>
+
+      <div class="problem-card">
+        <div class="problem-card-top">
+          <div class="warning-icon">!</div>
+          <div>
+            <strong>¿Qué está pasando con tu auto?</strong>
+            <span>Una falla no siempre cuenta toda su historia a simple vista.</span>
+          </div>
+        </div>
+        <div class="signal">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <ul>
+          <li><b>Testigo encendido</b><small>Obtené información sobre la falla registrada.</small></li>
+          <li><b>Falla intermitente</b><small>Analizá datos y parámetros disponibles.</small></li>
+          <li><b>Síntomas extraños</b><small>Relacioná la información electrónica con el problema.</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="services-section">
+    <div class="container">
+      <div class="services-heading">
+        <div>
+          <div class="section-kicker">¿QUÉ HACEMOS?</div>
+          <h2>Diagnóstico basado en <span>información.</span></h2>
+        </div>
+        <p>
+          No se trata solamente de conectar un scanner.
+          Obtenemos información del vehículo, la analizamos y la interpretamos
+          dentro del contexto de la falla.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card featured">
+          <div class="service-number">01</div>
+          <div class="service-icon">⌕</div>
+          <h3>Escaneo electrónico</h3>
+          <p>Accedemos a los sistemas electrónicos disponibles del vehículo.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-number">02</div>
+          <div class="service-icon">DTC</div>
+          <h3>Lectura de códigos</h3>
+          <p>Leemos e interpretamos los códigos de falla registrados.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-number">03</div>
+          <div class="service-icon">↗</div>
+          <h3>Datos en vivo</h3>
+          <p>Analizamos parámetros disponibles para observar el comportamiento del sistema.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-number">04</div>
+          <div class="service-icon">◉</div>
+          <h3>Pruebas</h3>
+          <p>Realizamos pruebas y funciones disponibles cuando corresponda al vehículo.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-number">05</div>
+          <div class="service-icon">≋</div>
+          <h3>Interpretación</h3>
+          <p>Relacionamos códigos, parámetros y síntomas para orientar el diagnóstico.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-number">06</div>
+          <div class="service-icon">▤</div>
+          <h3>Informe y documentación</h3>
+          <p>Cuando corresponde, organizamos los resultados para que puedas conservarlos.</p>
+        </article>
+      </div>
+
+      <div class="services-footer">
+        <strong>La información no reemplaza el diagnóstico mecánico o eléctrico cuando es necesario.</strong>
+        <span>El alcance de las funciones y pruebas depende de la marca, modelo, año y equipamiento del vehículo.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="para-quien" class="audience-section">
+    <div class="container">
+      <div class="section-kicker">PARA QUIÉN</div>
+      <h2>Una solución para cada <span>necesidad.</span></h2>
+      <div class="audience-grid">
+        <div class="audience-item"><b>PARTICULARES</b><span>Conocé mejor qué ocurre con tu vehículo.</span></div>
+        <div class="audience-item"><b>TALLERES</b><span>Soporte externo para diagnóstico electrónico.</span></div>
+        <div class="audience-item"><b>PRECOMPRA</b><span>Información electrónica adicional antes de comprar un usado.</span></div>
+        <div class="audience-item"><b>FLOTAS</b><span>Diagnóstico, documentación e historial organizado.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="por-que" class="why-section">
+    <div class="container">
+      <div class="why-heading">
+        <div>
+          <div class="section-kicker">¿POR QUÉ DIAGNOAUTO?</div>
+          <h2>No se trata solamente de <span>conectar un scanner.</span></h2>
+        </div>
+        <p>
+          El valor está en transformar la información electrónica disponible
+          en una herramienta útil para entender mejor una falla y decidir cómo continuar.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <article class="why-card">
+          <span class="why-index">01</span>
+          <div class="why-symbol">I</div>
+          <h3>Información</h3>
+          <p>Obtenemos información electrónica del vehículo y de los sistemas disponibles.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-index">02</span>
+          <div class="why-symbol">A</div>
+          <h3>Análisis</h3>
+          <p>Interpretamos los datos dentro del contexto de los síntomas y la falla.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-index">03</span>
+          <div class="why-symbol">C</div>
+          <h3>Claridad</h3>
+          <p>Buscamos explicar los resultados de forma clara y comprensible.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-index">04</span>
+          <div class="why-symbol">D</div>
+          <h3>Documentación</h3>
+          <p>Cuando corresponde, entregamos un informe para conservar los resultados.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-index">05</span>
+          <div class="why-symbol">S</div>
+          <h3>Seguimiento</h3>
+          <p>La información puede conservarse para futuras consultas y evolución del vehículo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="process-section">
+    <div class="container">
+      <div class="section-kicker">CÓMO FUNCIONA</div>
+      <h2>Del problema a la información.<br><span>Un proceso claro.</span></h2>
+      <div class="process-grid">
+        <div class="process-step"><b>01</b><strong>Contactanos</strong><p>Contanos qué problema presenta el vehículo.</p></div>
+        <div class="process-step"><b>02</b><strong>Evaluamos el caso</strong><p>Definimos qué diagnóstico corresponde.</p></div>
+        <div class="process-step"><b>03</b><strong>Realizamos el diagnóstico</strong><p>Trabajamos con equipamiento profesional.</p></div>
+        <div class="process-step"><b>04</b><strong>Analizamos la información</strong><p>Códigos, datos y parámetros disponibles.</p></div>
+        <div class="process-step"><b>05</b><strong>Documentamos</strong><p>Cuando corresponde, se entrega un informe.</p></div>
+        <div class="process-step"><b>06</b><strong>Siguientes pasos</strong><p>Obtenés información para decidir cómo continuar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="informe" class="report-section">
+    <div class="container report-grid">
+      <div class="report-visual">
+        <div class="report-sheet">
+          <div class="report-head">
+            <span>DIAGNOAUTO</span><b>DIAGNÓSTICO</b>
+          </div>
+          <div class="report-line wide"></div>
+          <div class="report-line"></div>
+          <div class="report-row"><i></i><span></span><em></em></div>
+          <div class="report-row"><i></i><span></span><em></em></div>
+          <div class="report-row"><i></i><span></span><em></em></div>
+          <div class="report-line"></div>
+          <div class="report-stamp">INFORME</div>
+        </div>
+      </div>
+      <div class="report-copy">
+        <div class="section-kicker">INFORME</div>
+        <h2>Tu diagnóstico,<br><span>también por escrito.</span></h2>
+        <p>
+          La información del diagnóstico puede ser más útil cuando queda
+          ordenada y documentada.
+        </p>
+        <div class="report-points">
+          <div><b>Claro</b><span>Información presentada de manera comprensible.</span></div>
+          <div><b>Ordenado</b><span>Resultados organizados para facilitar su consulta.</span></div>
+          <div><b>Profesional</b><span>Documentación del trabajo realizado cuando corresponda.</span></div>
+          <div><b>Para conservar</b><span>Útil para futuras consultas y seguimiento del vehículo.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="talleres" class="b2b-section">
+    <div class="container b2b-grid">
+      <div class="b2b-copy">
+        <div class="section-kicker">PARA TALLERES</div>
+        <h2>Tu taller tiene un aliado en <span>diagnóstico.</span></h2>
+        <p>
+          Cuando aparece una falla electrónica compleja, podés contar con
+          DIAGNOAUTO como soporte externo.
+        </p>
+        <a class="btn btn-primary" href="#contacto">QUIERO TRABAJAR CON DIAGNOAUTO</a>
+      </div>
+      <div class="b2b-card">
+        <div class="b2b-card-title">SOPORTE EXTERNO</div>
+        <div class="b2b-item"><b>LECTURA</b><span>Información de los sistemas electrónicos disponibles.</span></div>
+        <div class="b2b-item"><b>ANÁLISIS</b><span>Interpretación de códigos, datos y parámetros.</span></div>
+        <div class="b2b-item"><b>DIAGNÓSTICO</b><span>Orientación basada en la información obtenida.</span></div>
+        <div class="b2b-item"><b>DOCUMENTACIÓN</b><span>Informe cuando corresponda.</span></div>
+        <div class="b2b-footer">VOS REPARÁS. <strong>NOSOTROS TE AYUDAMOS A DIAGNOSTICAR.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="precompra" class="prebuy-section">
+    <div class="container prebuy-grid">
+      <div class="prebuy-card">
+        <div class="prebuy-badge">PRECOMPRA</div>
+        <div class="prebuy-screen">
+          <div class="screen-dot"></div>
+          <div class="screen-bars"><i></i><i></i><i></i><i></i><i></i></div>
+          <span>INFORMACIÓN ELECTRÓNICA</span>
+        </div>
+      </div>
+      <div class="prebuy-copy">
+        <div class="section-kicker">ANTES DE COMPRAR UN USADO</div>
+        <h2>Antes de comprar,<br><span>conocé más sobre el vehículo.</span></h2>
+        <p>
+          El diagnóstico electrónico puede aportar información adicional sobre
+          el estado del vehículo antes de concretar una compra.
+        </p>
+        <p class="responsible">
+          <strong>Importante:</strong> no reemplaza una inspección mecánica,
+          estructural, legal ni una revisión general del vehículo.
+        </p>
+        <a class="btn btn-primary" href="#contacto">CONSULTÁ POR DIAGNÓSTICO PRECOMPRA</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="flotas" class="fleet-section">
+    <div class="container">
+      <div class="section-kicker">PARA FLOTAS</div>
+      <h2>Más vehículos. Más información.<br><span>Más control.</span></h2>
+      <p class="fleet-lead">Construí una base de información técnica organizada para tus vehículos.</p>
+      <div class="fleet-grid">
+        <div class="fleet-card"><b>01</b><strong>Diagnóstico</strong><span>Información electrónica de cada unidad.</span></div>
+        <div class="fleet-card"><b>02</b><strong>Historial</strong><span>Antecedentes y diagnósticos conservados.</span></div>
+        <div class="fleet-card"><b>03</b><strong>Documentación</strong><span>Resultados ordenados para futuras consultas.</span></div>
+        <div class="fleet-card"><b>04</b><strong>Seguimiento</strong><span>Evolución de cada unidad a lo largo del tiempo.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-kicker">PREGUNTAS FRECUENTES</div>
+      <h2>Lo que necesitás saber<br><span>antes de diagnosticar.</span></h2>
+      <div class="faq-grid">
+        <details><summary>¿Qué es un diagnóstico electrónico?</summary><p>Es un proceso de obtención y análisis de información de los sistemas electrónicos disponibles del vehículo para orientar la comprensión de una falla.</p></details>
+        <details><summary>¿El diagnóstico reemplaza al mecánico?</summary><p>No. El diagnóstico electrónico complementa la revisión mecánica o eléctrica cuando ésta es necesaria.</p></details>
+        <details><summary>¿Qué significa un código de falla?</summary><p>Es un código registrado por un sistema electrónico que señala una condición que merece ser analizada. El código, por sí solo, no siempre identifica una pieza que deba reemplazarse.</p></details>
+        <details><summary>¿Una falla puede existir aunque no aparezca un código?</summary><p>Sí. La ausencia de un código no significa necesariamente que no exista un problema. El diagnóstico depende también de síntomas, datos y pruebas disponibles.</p></details>
+        <details><summary>¿Qué pasa si la falla es intermitente?</summary><p>Puede requerir observación de síntomas, datos en vivo, parámetros y pruebas según el caso.</p></details>
+        <details><summary>¿Recibo un informe?</summary><p>Cuando corresponda, se puede documentar el resultado del diagnóstico para conservarlo y consultarlo posteriormente.</p></details>
+        <details><summary>¿Puedo hacer un diagnóstico antes de comprar un usado?</summary><p>Sí. Puede aportar información electrónica adicional, pero no reemplaza una inspección integral del vehículo.</p></details>
+        <details><summary>¿Trabajan con talleres y flotas?</summary><p>Sí. DIAGNOAUTO contempla soporte de diagnóstico para talleres y servicios orientados a vehículos de flota.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact-section">
+    <div class="container contact-box">
+      <div>
+        <div class="section-kicker">CONTACTO</div>
+        <h2>¿Querés saber qué está pasando con tu auto?</h2>
+        <p>Hablemos.</p>
+      </div>
+      <div class="contact-placeholder contact-real">
+        <span>DIAGNOAUTO · PARANÁ Y ALREDEDORES</span>
+        <a href="tel:+543435708904">📞 343 570 8904</a>
+        <a href="tel:+542213645342">📞 221 364 5342</a>
+        <a href="mailto:diagnoautopro@gmail.com">✉️ diagnoautopro@gmail.com</a>
+        <a href="https://www.instagram.com/diagnoautopro" target="_blank" rel="noopener">📸 Instagram · @diagnoautopro</a>
+        <small>Servicio a domicilio en Paraná y alrededores · Lunes a domingo, 9:00 a 20:00.</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">DIAGNOAUTO</div>
+    <div class="footer-note">
+      Tu Auto Habla, Nosotros lo Escuchamos. · Diagnóstico electrónico automotriz profesional.<br>
+      Servicio a domicilio en Paraná y alrededores · Lunes a domingo, 9:00 a 20:00.<br>
+      Tel. 343 570 8904 · 221 364 5342 · diagnoautopro@gmail.com · Instagram @diagnoautopro.
+    </div>
+  </div>
+</footer>
+<script>
+  (function(){
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('main-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function(){
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
